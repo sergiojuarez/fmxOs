@@ -13,6 +13,7 @@ import com.finmex.omnisuite.client.ObjectFactory;
 import com.finmex.omnisuite.client.Parametros;
 import com.finmex.omnisuite.client.service.CreditoMovimientosClientService;
 import com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO;
+import com.finmex.omnisuite.exceptions.OmnisuiteException;
 
 public class CreditoMovimientosClientServiceImpl implements CreditoMovimientosClientService {
 	
@@ -22,7 +23,7 @@ public class CreditoMovimientosClientServiceImpl implements CreditoMovimientosCl
     QName serviceQN = new QName(namespace, serviceName);
     Service service;
 	
-	public MovimientosCredito consultarUltimosMovimientos(ParametrosVO parametrosVO) {
+	public MovimientosCredito consultarUltimosMovimientos(ParametrosVO parametrosVO) throws OmnisuiteException {
 		MovimientosCredito movs = null;
 		ObjectFactory objectFactory = new ObjectFactory();
 		try {
@@ -31,8 +32,8 @@ public class CreditoMovimientosClientServiceImpl implements CreditoMovimientosCl
 			service = CreditoMovimientos.create(new URL(wsdlURL), serviceQN);
 			CreditoMovimientosSoap port = service.getPort(CreditoMovimientosSoap.class);
 			movs = port.movimientosArray(parametros);
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			throw new OmnisuiteException("Error al consultar el movimiento de crédito", e);
 		}
 		return movs;
 	}
