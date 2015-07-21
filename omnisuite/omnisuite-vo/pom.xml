@@ -6,4 +6,11 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>omnisuite-vo</artifactId>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.finmex.omnisuite</groupId>
+  		<artifactId>omnisuite-core</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>
