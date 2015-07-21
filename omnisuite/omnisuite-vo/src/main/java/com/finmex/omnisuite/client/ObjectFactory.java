@@ -30,6 +30,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Parametros }
+     * 
+     */
+    public Parametros createParametros() {
+        return new Parametros();
+    }
+
+    /**
      * Create an instance of {@link MovimientosCredito }
      * 
      */
@@ -43,14 +51,6 @@ public class ObjectFactory {
      */
     public Movimientos createMovimientos() {
         return new Movimientos();
-    }
-
-    /**
-     * Create an instance of {@link Parametros }
-     * 
-     */
-    public Parametros createParametros() {
-        return new Parametros();
     }
 
 }

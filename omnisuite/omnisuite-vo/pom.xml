@@ -6,11 +6,44 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>omnisuite-vo</artifactId>
-  <dependencies>
-  	<dependency>
-  		<groupId>com.finmex.omnisuite</groupId>
-  		<artifactId>omnisuite-core</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
+  
+  <build>
+		<plugins>
+			<!-- usage of jax-ws maven plugin -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>1.12</version>
+				<executions>
+					<execution>
+						<id>wsimport-from-jdk</id>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- using wsdl from an url -->
+					<wsdlUrls>
+						<wsdlUrl>
+							http://192.168.80.102:8181/cxf/CreditoMovimientos?wsdl
+						</wsdlUrl>
+					</wsdlUrls>
+					<!-- or using wsdls file directory -->
+					<!-- <wsdlDirectory>src/wsdl</wsdlDirectory> -->
+					<!-- which wsdl file -->
+					<!-- <wsdlFiles> -->
+					<!-- <wsdlFile>myWSDL.wsdl</wsdlFile> -->
+					<!--</wsdlFiles> -->
+					<!-- Keep generated files -->
+					<keep>true</keep>
+					<!-- Package name -->
+					<packageName>com.finmex.omnisuite.client</packageName>
+					<!-- generated source files destination -->
+					<!-- <sourceDestDir>target/generatedclasses</sourceDestDir> -->
+					<sourceDestDir>src/main/java/</sourceDestDir>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

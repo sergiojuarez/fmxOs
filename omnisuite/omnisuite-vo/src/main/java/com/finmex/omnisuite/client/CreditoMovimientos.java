@@ -19,7 +19,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "CreditoMovimientos", targetNamespace = "http://Mascore/Movimientos", wsdlLocation = "http://192.168.90.13:1019/CreditoMovimientos.asmx?wsdl")
+@WebServiceClient(name = "CreditoMovimientos", targetNamespace = "http://Mascore/Movimientos", wsdlLocation = "http://192.168.80.102:8181/cxf/CreditoMovimientos?wsdl")
 public class CreditoMovimientos
     extends Service
 {
@@ -32,9 +32,9 @@ public class CreditoMovimientos
         try {
             URL baseUrl;
             baseUrl = com.finmex.omnisuite.client.CreditoMovimientos.class.getResource(".");
-            url = new URL(baseUrl, "http://192.168.90.13:1019/CreditoMovimientos.asmx?wsdl");
+            url = new URL(baseUrl, "http://192.168.80.102:8181/cxf/CreditoMovimientos?wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'http://192.168.90.13:1019/CreditoMovimientos.asmx?wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'http://192.168.80.102:8181/cxf/CreditoMovimientos?wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         CREDITOMOVIMIENTOS_WSDL_LOCATION = url;

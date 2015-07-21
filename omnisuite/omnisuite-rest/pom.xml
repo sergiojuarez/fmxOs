@@ -13,8 +13,6 @@
 	<packaging>war</packaging>
 	<name>omnisuite-rest</name>
 
-	<url>http://maven.apache.org</url>
-
 	<dependencies>
 		<dependency>
 			<groupId>com.finmex.omnisuite</groupId>
