@@ -6,7 +6,13 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>omnisuite-core</artifactId>
-  
+  <dependencies>
+	<dependency>
+		<groupId>com.finmex.omnisuite</groupId>
+		<artifactId>omnisuite-vo</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+  </dependencies>
 	<build>
 		<plugins>
 			<!-- usage of jax-ws maven plugin -->
