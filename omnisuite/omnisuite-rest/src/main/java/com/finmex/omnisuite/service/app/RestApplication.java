@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-import com.finmex.omnisuite.service.credito.movimiento.Credito;
+import com.finmex.omnisuite.credito.movimiento.service.CreditoService;
 
 @ApplicationPath("/finmex")
 public class RestApplication extends Application 
@@ -15,7 +15,7 @@ public class RestApplication extends Application
 	@Override
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> set = new HashSet<Class<?>>();
-		set.add(Credito.class);
+		set.add(CreditoService.class);
 		System.out.println("servicios " + set);
 		return set;
 	}

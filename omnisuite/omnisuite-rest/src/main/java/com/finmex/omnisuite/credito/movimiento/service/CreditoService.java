@@ -1,4 +1,4 @@
-package com.finmex.omnisuite.service.credito.movimiento;
+package com.finmex.omnisuite.credito.movimiento.service;
 
 import java.util.ArrayList;
 
@@ -12,8 +12,8 @@ import javax.ws.rs.core.Response;
 
 import com.finmex.omnisuite.client.Movimientos;
 import com.finmex.omnisuite.client.MovimientosCredito;
-import com.finmex.omnisuite.client.service.CreditoMovimientosClientService;
-import com.finmex.omnisuite.client.service.impl.CreditoMovimientosClientServiceImpl;
+import com.finmex.omnisuite.credito.movimiento.client.service.CreditoMovimientosClientService;
+import com.finmex.omnisuite.credito.movimiento.client.service.impl.CreditoMovimientosClientServiceImpl;
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosCreditoVO;
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosVO;
 import com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO;
@@ -25,7 +25,7 @@ import com.google.gson.GsonBuilder;
 @Path("/credito")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class Credito {
+public class CreditoService {
 	
 	@POST
 	@Path("/consulta")

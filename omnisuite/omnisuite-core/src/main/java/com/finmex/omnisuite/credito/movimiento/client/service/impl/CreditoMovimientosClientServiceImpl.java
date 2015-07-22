@@ -1,8 +1,10 @@
-package com.finmex.omnisuite.client.service.impl;
+package com.finmex.omnisuite.credito.movimiento.client.service.impl;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.enterprise.context.Dependent;
+import javax.enterprise.inject.Alternative;
+import javax.enterprise.inject.Default;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
@@ -11,7 +13,7 @@ import com.finmex.omnisuite.client.CreditoMovimientosSoap;
 import com.finmex.omnisuite.client.MovimientosCredito;
 import com.finmex.omnisuite.client.ObjectFactory;
 import com.finmex.omnisuite.client.Parametros;
-import com.finmex.omnisuite.client.service.CreditoMovimientosClientService;
+import com.finmex.omnisuite.credito.movimiento.client.service.CreditoMovimientosClientService;
 import com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO;
 import com.finmex.omnisuite.exceptions.OmnisuiteException;
 
