@@ -12,6 +12,7 @@ import javax.ws.rs.core.Response;
 
 import com.finmex.omnisuite.client.Movimientos;
 import com.finmex.omnisuite.client.MovimientosCredito;
+import com.finmex.omnisuite.corp.vo.ErrorVO;
 import com.finmex.omnisuite.credito.movimiento.client.service.CreditoMovimientosClientService;
 import com.finmex.omnisuite.credito.movimiento.client.service.impl.CreditoMovimientosClientServiceImpl;
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosCreditoVO;
@@ -33,14 +34,16 @@ public class CreditoService {
 		if( param == null) {
 			return Response.status(Response.Status.NOT_FOUND).build();
 		}
-		
+		final Gson json = new GsonBuilder().setDateFormat("dd mm, yyyy hh:MM:ss").create();
 		CreditoMovimientosClientService movimiento = new CreditoMovimientosClientServiceImpl();
 		MovimientosCredito consulta = null;
 		try 
 		{
 			consulta = movimiento.consultarUltimosMovimientos(param);
 		} catch (OmnisuiteException e) {
-			return Response.status(Response.Status.SERVICE_UNAVAILABLE).entity(e.getMessage()).build();
+			final ErrorVO error = new ErrorVO(Response.Status.SERVICE_UNAVAILABLE.getStatusCode(),
+					"Se ha generado un error", e.getMessage());
+			return Response.serverError().entity(json.toJson(error)).build();
 		}
 		MovimientosCreditoVO listaCredito = new MovimientosCreditoVO();
 		listaCredito.setMovimientos(new ArrayList<MovimientosVO>());
@@ -49,7 +52,6 @@ public class CreditoService {
 			listaCredito.getMovimientos().add(new MovimientosVO(m));
 		}
 		
-		final Gson json = new GsonBuilder().setDateFormat("dd mm, yyyy hh:MM:ss").create();
 		String sjson = json.toJson(listaCredito);
 		System.out.println(sjson);
 		return Response.ok(sjson, MediaType.APPLICATION_JSON).build();
