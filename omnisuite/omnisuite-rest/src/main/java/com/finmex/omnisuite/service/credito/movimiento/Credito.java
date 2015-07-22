@@ -17,6 +17,7 @@ import com.finmex.omnisuite.client.service.impl.CreditoMovimientosClientServiceI
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosCreditoVO;
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosVO;
 import com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO;
+import com.finmex.omnisuite.exceptions.OmnisuiteException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -34,7 +35,13 @@ public class Credito {
 		}
 		
 		CreditoMovimientosClientService movimiento = new CreditoMovimientosClientServiceImpl();
-		MovimientosCredito consulta = movimiento.consultarUltimosMovimientos(param);
+		MovimientosCredito consulta = null;
+		try 
+		{
+			consulta = movimiento.consultarUltimosMovimientos(param);
+		} catch (OmnisuiteException e) {
+			return Response.status(Response.Status.SERVICE_UNAVAILABLE).entity(e.getMessage()).build();
+		}
 		MovimientosCreditoVO listaCredito = new MovimientosCreditoVO();
 		listaCredito.setMovimientos(new ArrayList<MovimientosVO>());
 		
