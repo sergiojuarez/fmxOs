@@ -1,6 +1,7 @@
 package com.finmex.omnisuite.credito.movimiento.service;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -10,7 +11,6 @@ import javax.ws.rs.core.Response;
 
 import com.finmex.omnisuite.corp.vo.ErrorVO;
 import com.finmex.omnisuite.credito.movimiento.client.service.CreditoMovimientosClientService;
-import com.finmex.omnisuite.credito.movimiento.client.service.impl.CreditoMovimientosClientServiceImpl;
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosCreditoVO;
 import com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO;
 import com.finmex.omnisuite.exceptions.OmnisuiteException;
@@ -23,6 +23,9 @@ import com.google.gson.GsonBuilder;
 @Consumes(MediaType.APPLICATION_JSON)
 public class CreditoService {
 	
+	@Inject
+	private CreditoMovimientosClientService movimiento; 
+	
 	@POST
 	@Path("/consulta")
 	public Response consultaMovimiento(final ParametrosVO param){
@@ -30,7 +33,7 @@ public class CreditoService {
 			return Response.status(Response.Status.NOT_FOUND).build();
 		}
 		final Gson json = new GsonBuilder().setDateFormat("dd mm, yyyy hh:MM:ss").create();
-		CreditoMovimientosClientService movimiento = new CreditoMovimientosClientServiceImpl();
+		
 		MovimientosCreditoVO consulta = null;
 		try 
 		{
