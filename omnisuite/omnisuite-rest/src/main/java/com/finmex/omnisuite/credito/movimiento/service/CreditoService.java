@@ -1,7 +1,5 @@
 package com.finmex.omnisuite.credito.movimiento.service;
 
-import java.util.ArrayList;
-
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -10,13 +8,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.finmex.omnisuite.client.Movimientos;
-import com.finmex.omnisuite.client.MovimientosCredito;
 import com.finmex.omnisuite.corp.vo.ErrorVO;
 import com.finmex.omnisuite.credito.movimiento.client.service.CreditoMovimientosClientService;
 import com.finmex.omnisuite.credito.movimiento.client.service.impl.CreditoMovimientosClientServiceImpl;
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosCreditoVO;
-import com.finmex.omnisuite.credito.movimientos.vo.MovimientosVO;
 import com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO;
 import com.finmex.omnisuite.exceptions.OmnisuiteException;
 import com.google.gson.Gson;
@@ -36,7 +31,7 @@ public class CreditoService {
 		}
 		final Gson json = new GsonBuilder().setDateFormat("dd mm, yyyy hh:MM:ss").create();
 		CreditoMovimientosClientService movimiento = new CreditoMovimientosClientServiceImpl();
-		MovimientosCredito consulta = null;
+		MovimientosCreditoVO consulta = null;
 		try 
 		{
 			consulta = movimiento.consultarUltimosMovimientos(param);
@@ -45,14 +40,8 @@ public class CreditoService {
 					"Se ha generado un error", e.getMessage());
 			return Response.serverError().entity(json.toJson(error)).build();
 		}
-		MovimientosCreditoVO listaCredito = new MovimientosCreditoVO();
-		listaCredito.setMovimientos(new ArrayList<MovimientosVO>());
 		
-		for(Movimientos m : consulta.getMovimientos()){
-			listaCredito.getMovimientos().add(new MovimientosVO(m));
-		}
-		
-		String sjson = json.toJson(listaCredito);
+		String sjson = json.toJson(consulta);
 		System.out.println(sjson);
 		return Response.ok(sjson, MediaType.APPLICATION_JSON).build();
 	}
