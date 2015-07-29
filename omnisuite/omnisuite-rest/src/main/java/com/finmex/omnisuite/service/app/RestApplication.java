@@ -1,22 +1,13 @@
 package com.finmex.omnisuite.service.app;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
 
-import com.finmex.omnisuite.credito.movimiento.service.CreditoService;
+import org.glassfish.jersey.server.ResourceConfig;
 
 @ApplicationPath("/finmex")
-public class RestApplication extends Application 
-{
+public class RestApplication extends ResourceConfig {
 	
-	@Override
-	public Set<Class<?>> getClasses() {
-		Set<Class<?>> set = new HashSet<Class<?>>();
-		set.add(CreditoService.class);
-		System.out.println("servicios " + set);
-		return set;
-	}
+	public RestApplication() {
+        packages("com.finmex.omnisuite");
+    }
 }

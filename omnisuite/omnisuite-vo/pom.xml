@@ -7,9 +7,9 @@
   </parent>
   <artifactId>omnisuite-vo</artifactId>
   
-  <build>
+  <!-- <build>
 		<plugins>
-			<!-- usage of jax-ws maven plugin -->
+			usage of jax-ws maven plugin
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
@@ -23,27 +23,27 @@
 					</execution>
 				</executions>
 				<configuration>
-					<!-- using wsdl from an url -->
+					using wsdl from an url
 					<wsdlUrls>
 						<wsdlUrl>
 							http://192.168.80.102:8181/cxf/CreditoMovimientos?wsdl
 						</wsdlUrl>
 					</wsdlUrls>
-					<!-- or using wsdls file directory -->
-					<!-- <wsdlDirectory>src/wsdl</wsdlDirectory> -->
-					<!-- which wsdl file -->
-					<!-- <wsdlFiles> -->
-					<!-- <wsdlFile>myWSDL.wsdl</wsdlFile> -->
-					<!--</wsdlFiles> -->
-					<!-- Keep generated files -->
+					or using wsdls file directory
+					<wsdlDirectory>src/wsdl</wsdlDirectory>
+					which wsdl file
+					<wsdlFiles>
+					<wsdlFile>myWSDL.wsdl</wsdlFile>
+					</wsdlFiles>
+					Keep generated files
 					<keep>true</keep>
-					<!-- Package name -->
+					Package name
 					<packageName>com.finmex.omnisuite.client</packageName>
-					<!-- generated source files destination -->
-					<!-- <sourceDestDir>target/generatedclasses</sourceDestDir> -->
+					generated source files destination
+					<sourceDestDir>target/generatedclasses</sourceDestDir>
 					<sourceDestDir>src/main/java/</sourceDestDir>
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>
+	</build> -->
 </project>

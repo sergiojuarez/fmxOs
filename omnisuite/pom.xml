@@ -6,6 +6,13 @@
 	<artifactId>omnisuite</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jee.version>6.0</jee.version>
+        <jersey.version>2.19</jersey.version>
+        <log4j.version>1.2.17</log4j.version>
+    </properties>
 
 	<modules>
 		<module>omnisuite-core</module>
@@ -18,7 +25,7 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>6.0</version>
+			<version>${jee.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -26,8 +33,23 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<version>${log4j.version}</version>
 		</dependency>
+		
+		<!-- Jersey -->
+		<dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <!-- <artifactId>jersey-container-servlet-core</artifactId> -->
+            <!-- use the following artifactId if you don't need servlet 2.x compatibility -->
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <!--  uncomment this to get JSON support -->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
 	</dependencies>
 
 	<build>

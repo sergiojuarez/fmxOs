@@ -16,26 +16,15 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.finmex.omnisuite</groupId>
-			<artifactId>omnisuite-core</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.finmex.omnisuite</groupId>
 			<artifactId>omnisuite-vo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>1.9</version>
+			<groupId>com.finmex.omnisuite</groupId>
+			<artifactId>omnisuite-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
-			<version>1.9</version>
-			<scope>compile</scope>
-		</dependency>
+		
 	</dependencies>
 	<build>
 		<finalName>omnisuite-rest</finalName>
