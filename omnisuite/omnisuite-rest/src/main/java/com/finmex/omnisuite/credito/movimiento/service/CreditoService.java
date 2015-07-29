@@ -9,7 +9,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.finmex.omnisuite.corp.vo.ErrorVO;
+import org.apache.log4j.Logger;
+
+import com.finmex.omnisuite.corp.vo.RespuestaVO;
 import com.finmex.omnisuite.credito.movimiento.client.service.CreditoMovimientosClientService;
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosCreditoVO;
 import com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO;
@@ -20,7 +22,7 @@ import com.finmex.omnisuite.exceptions.OmnisuiteException;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class CreditoService {
-	
+	private static final Logger LOG = Logger.getLogger(CreditoService.class);
 	@Inject
 	private CreditoMovimientosClientService movimiento; 
 	
@@ -32,9 +34,9 @@ public class CreditoService {
 		{
 			consulta = movimiento.consultarUltimosMovimientos(param);
 		} catch (OmnisuiteException|NullPointerException e) {
-			final ErrorVO error =
-					new ErrorVO(Response.Status.SERVICE_UNAVAILABLE.getStatusCode(),
-					"Se ha generado un error", "NullPointer");
+			final RespuestaVO error =
+					new RespuestaVO(Response.Status.SERVICE_UNAVAILABLE.getStatusCode(),
+					e.getMessage());
 			return Response.serverError().entity(error).build();
 		}
 		return Response.ok(consulta).build();
