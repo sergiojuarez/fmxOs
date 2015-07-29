@@ -15,9 +15,11 @@
     </properties>
 
 	<modules>
+		<module>omnisuite-service</module>
 		<module>omnisuite-core</module>
 		<module>omnisuite-vo</module>
-		<module>omnisuite-rest</module>
+		<module>omnisuite-excepciones</module>
+		<module>omnisuite-utils</module>
 	</modules>
 
 	<dependencies>
