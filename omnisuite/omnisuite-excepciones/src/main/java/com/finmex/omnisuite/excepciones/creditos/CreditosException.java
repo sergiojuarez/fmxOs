@@ -1,4 +1,4 @@
-package com.finmex.omnisuite.excepciones.credito.movimiento;
+package com.finmex.omnisuite.excepciones.creditos;
 
 import com.finmex.omnisuite.excepciones.OmniSuiteException;
 

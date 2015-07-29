@@ -18,7 +18,7 @@ import com.finmex.omnisuite.credito.movimiento.client.service.CreditoMovimientos
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosCreditoVO;
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosVO;
 import com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO;
-import com.finmex.omnisuite.excepciones.credito.movimiento.CreditosException;
+import com.finmex.omnisuite.excepciones.creditos.CreditosException;
 
 public class CreditoMovimientosClientServiceImpl implements CreditoMovimientosClientService {
 	

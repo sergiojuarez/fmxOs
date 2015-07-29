@@ -1,4 +1,4 @@
-package com.finmex.omnisuite.credito.movimiento.service;
+package com.finmex.omnisuite.service.creditos;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -16,20 +16,20 @@ import com.finmex.omnisuite.credito.movimiento.client.service.CreditoMovimientos
 import com.finmex.omnisuite.credito.movimiento.client.service.impl.CreditoMovimientosClientServiceImpl;
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosCreditoVO;
 import com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO;
-import com.finmex.omnisuite.excepciones.credito.movimiento.CreditosException;
+import com.finmex.omnisuite.excepciones.creditos.CreditosException;
 
 @RequestScoped
-@Path("/credito")
+@Path("/creditos")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class CreditoService {
-	private static final Logger LOG = Logger.getLogger(CreditoService.class);
+public class CreditosConsultaService {
+	private static final Logger LOG = Logger.getLogger(CreditosConsultaService.class);
 //	@Inject
 	private CreditoMovimientosClientService movimiento; 
 	
 	@POST
-	@Path("/consulta")
-	public Response consultaMovimiento(final ParametrosVO param){
+	@Path("/crc01")
+	public Response consultarMovimiento(final ParametrosVO param){
 		MovimientosCreditoVO consulta = null;
 		try 
 		{
