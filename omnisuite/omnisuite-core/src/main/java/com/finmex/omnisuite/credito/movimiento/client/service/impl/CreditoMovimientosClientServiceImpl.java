@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
+import org.apache.log4j.Logger;
+
 import com.finmex.omnisuite.client.CreditoMovimientos;
 import com.finmex.omnisuite.client.CreditoMovimientosSoap;
 import com.finmex.omnisuite.client.Movimientos;
@@ -16,9 +18,11 @@ import com.finmex.omnisuite.credito.movimiento.client.service.CreditoMovimientos
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosCreditoVO;
 import com.finmex.omnisuite.credito.movimientos.vo.MovimientosVO;
 import com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO;
-import com.finmex.omnisuite.exceptions.OmnisuiteException;
+import com.finmex.omnisuite.excepciones.credito.movimiento.CreditosException;
 
 public class CreditoMovimientosClientServiceImpl implements CreditoMovimientosClientService {
+	
+	private static final Logger LOG = Logger.getLogger(CreditoMovimientosClientServiceImpl.class);
 	
 	String wsdlURL = "http://192.168.80.102:8181/cxf/CreditoMovimientos?wsdl";
     String namespace = "http://Mascore/Movimientos";
@@ -26,7 +30,7 @@ public class CreditoMovimientosClientServiceImpl implements CreditoMovimientosCl
     QName serviceQN = new QName(namespace, serviceName);
     Service service;
     
-	public MovimientosCreditoVO consultarUltimosMovimientos(ParametrosVO parametrosVO) throws OmnisuiteException {
+	public MovimientosCreditoVO consultarUltimosMovimientos(ParametrosVO parametrosVO) throws CreditosException {
 		MovimientosCredito movs = null;
 		ObjectFactory objectFactory = new ObjectFactory();
 		try {
@@ -42,7 +46,7 @@ public class CreditoMovimientosClientServiceImpl implements CreditoMovimientosCl
 			}
 			return movsVO;
 		} catch (Exception e) {
-			throw new OmnisuiteException("Error al consultar el movimiento de crédito", e);
+			throw new CreditosException("Error al consultar el movimiento de crï¿½dito", e);
 		}
 	}
 }

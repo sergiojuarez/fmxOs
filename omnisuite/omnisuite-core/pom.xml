@@ -12,5 +12,17 @@
 		<artifactId>omnisuite-vo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</dependency>
+	
+	<dependency>
+		<groupId>com.finmex.omnisuite</groupId>
+		<artifactId>omnisuite-excepciones</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.finmex.omnisuite</groupId>
+		<artifactId>omnisuite-utils</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
   </dependencies>
 </project>
