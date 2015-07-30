@@ -39,6 +39,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>omnisuite-service</finalName>
+		<finalName>${project.filename}</finalName>
 	</build>
 </project>

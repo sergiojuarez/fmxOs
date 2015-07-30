@@ -5,7 +5,7 @@ public final class CreditosClavesServicios {
 	private CreditosClavesServicios() {
 	}
 	
-	public static final String CREDITOS_PATH = "/creditos";
+	public static final String CREDITOS_PATH = "creditos";
 	
-	public static final String CONSULTAR_MOVIMIENTOS = "/crc01";
+	public static final String CONSULTAR_MOVIMIENTOS = "crc01";
 }

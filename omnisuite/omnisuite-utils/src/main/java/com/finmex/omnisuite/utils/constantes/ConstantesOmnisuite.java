@@ -7,5 +7,6 @@ public final class ConstantesOmnisuite {
 	private ConstantesOmnisuite() {		
 	}
 	
+	public static final String APPLICATION_PATH = "finmex";
 	public static final String APPLICATION_JSON_UTF8 = MediaType.APPLICATION_JSON + ";charset=utf-8";
 }
