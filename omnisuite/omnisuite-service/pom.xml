@@ -39,6 +39,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>omnisuite-integracion</finalName>
+		<finalName>omnisuite-service</finalName>
 	</build>
 </project>
