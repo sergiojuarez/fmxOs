@@ -1,10 +1,7 @@
 package com.finmex.omnisuite.credito.movimientos.vo;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.finmex.omnisuite.client.Parametros;
 
-@XmlRootElement
 public class ParametrosVO {
     private Long numCliente;
     private Long folioExpediente;

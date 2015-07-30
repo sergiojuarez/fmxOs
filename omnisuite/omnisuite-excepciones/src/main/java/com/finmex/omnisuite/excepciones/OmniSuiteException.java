@@ -7,14 +7,13 @@ package com.finmex.omnisuite.excepciones;
  * @author Daniel García
  *
  */
-public class OmniSuiteException extends Exception {
+public class OmniSuiteException extends RuntimeException {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	public OmniSuiteException() {
-		super();
 	}
 
 	public OmniSuiteException(String message, Throwable cause) {

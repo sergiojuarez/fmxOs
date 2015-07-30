@@ -1,16 +1,13 @@
-package com.finmex.omnisuite.corp.vo;
+package com.finmex.omnisuite.vo;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
-public class RespuestaVO {
+public class RespuestaVO <T>{
 	private Integer codigo;
-	private String message;
+	private T message;
 	
 	public RespuestaVO() {
 	}
 
-	public RespuestaVO(Integer codigo, String message) {
+	public RespuestaVO(Integer codigo, T message) {
 		this.codigo = codigo;
 		this.message = message;
 	}
@@ -30,13 +27,13 @@ public class RespuestaVO {
 	/**
 	 * @return the message
 	 */
-	public String getMessage() {
+	public T getMessage() {
 		return message;
 	}
 	/**
 	 * @param message the message to set
 	 */
-	public void setMessage(String message) {
+	public void setMessage(T message) {
 		this.message = message;
 	}
 	

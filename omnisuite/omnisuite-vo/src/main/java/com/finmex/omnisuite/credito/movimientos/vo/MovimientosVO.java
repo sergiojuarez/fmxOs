@@ -1,7 +1,5 @@
 package com.finmex.omnisuite.credito.movimientos.vo;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.finmex.omnisuite.client.Movimientos;
 
 /**
@@ -9,7 +7,6 @@ import com.finmex.omnisuite.client.Movimientos;
  * @author ETI2SANI
  *
  */
-@XmlRootElement
 public class MovimientosVO {
 	private String fecha;
 	private String folio;
