@@ -1,5 +1,6 @@
 package com.finmex.omnisuite.service.login;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -12,24 +13,23 @@ import org.apache.log4j.Logger;
 
 import com.finmex.omisuite.login.client.service.LoginClientService;
 import com.finmex.omisuite.login.client.service.impl.LoginClientServiceImpl;
+import com.finmex.omnisuite.utils.constantes.ConstantesOmnisuite;
 import com.finmex.omnisuite.utils.constantes.login.LoginClavesServicios;
 import com.finmex.omnisuite.vo.RespuestaVO;
 import com.finmex.omnisuite.vo.UsuarioVO;
 
 @Path(LoginClavesServicios.LOGIN_PATH)
-@Produces(MediaType.APPLICATION_JSON)
+@Produces(ConstantesOmnisuite.APPLICATION_JSON_UTF8)
 @Consumes(MediaType.APPLICATION_JSON)
 public class LoginService {
-	
 	private static final Logger LOG = Logger.getLogger(LoginService.class); 
 	
+	@Inject
 	private LoginClientService service;
-	
 	
 	@Path(LoginClavesServicios.VALIDAR_CLAVE_ACCESO)
 	@POST
 	public Response validarClaveAcceso(final UsuarioVO param) {
-		service = new LoginClientServiceImpl();
 		UsuarioVO out = service.validarClaveAcceso(param);
 		RespuestaVO<UsuarioVO> respuesta = 
 				new RespuestaVO<UsuarioVO>(Response.Status.ACCEPTED.getStatusCode(), out);
