@@ -12,9 +12,55 @@ public class UsuarioVO {
     private Boolean esPrimerAcceso;
     private Boolean esSegundoAcceso;
     private Boolean esClaveTemporal;
+    private String captcha;
+    private String clave;
+    private String nuevaClave;
     private TokenVO token;
+    
 
     /**
+	 * @return the captcha
+	 */
+	public String getCaptcha() {
+		return captcha;
+	}
+
+	/**
+	 * @param captcha the captcha to set
+	 */
+	public void setCaptcha(String captcha) {
+		this.captcha = captcha;
+	}
+
+	/**
+	 * @return the clave
+	 */
+	public String getClave() {
+		return clave;
+	}
+
+	/**
+	 * @param clave the clave to set
+	 */
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+
+	/**
+	 * @return the nuevaClave
+	 */
+	public String getNuevaClave() {
+		return nuevaClave;
+	}
+
+	/**
+	 * @param nuevaClave the nuevaClave to set
+	 */
+	public void setNuevaClave(String nuevaClave) {
+		this.nuevaClave = nuevaClave;
+	}
+
+	/**
      * 
      * @return
      *     The codigo
