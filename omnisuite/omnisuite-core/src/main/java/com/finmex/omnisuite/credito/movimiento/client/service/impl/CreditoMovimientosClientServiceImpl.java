@@ -20,6 +20,12 @@ import com.finmex.omnisuite.credito.movimientos.vo.MovimientosVO;
 import com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO;
 import com.finmex.omnisuite.excepciones.creditos.CreditosException;
 
+/**
+ * Clase que implementa los servicios para el módulo de Créditos.
+ * 
+ * @author Uriel Sánchez
+ * @since 21/08/2015
+ */
 public class CreditoMovimientosClientServiceImpl implements CreditoMovimientosClientService {
 	
 	private static final Logger LOG = Logger.getLogger(CreditoMovimientosClientServiceImpl.class);
@@ -30,6 +36,10 @@ public class CreditoMovimientosClientServiceImpl implements CreditoMovimientosCl
     QName serviceQN = new QName(namespace, serviceName);
     Service service;
     
+    
+	/* (non-Javadoc)
+	 * @see com.finmex.omnisuite.credito.movimiento.client.service.CreditoMovimientosClientService#consultarUltimosMovimientos(com.finmex.omnisuite.credito.movimientos.vo.ParametrosVO)
+	 */
 	public MovimientosCreditoVO consultarUltimosMovimientos(ParametrosVO parametrosVO) throws CreditosException {
 		MovimientosCredito movs = null;
 		ObjectFactory objectFactory = new ObjectFactory();

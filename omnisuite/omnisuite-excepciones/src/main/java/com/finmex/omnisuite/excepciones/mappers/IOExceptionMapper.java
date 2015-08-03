@@ -1,26 +1,27 @@
 package com.finmex.omnisuite.excepciones.mappers;
 
+import java.io.IOException;
+
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
-import javax.xml.ws.WebServiceException;
 
 import org.apache.log4j.Logger;
 
 import com.finmex.omnisuite.vo.RespuestaVO;
 
-public class WebServiceExceptionMapper implements ExceptionMapper<WebServiceException> {
-	private static final Logger LOG = Logger.getLogger(WebServiceException.class);
+public class IOExceptionMapper implements ExceptionMapper<IOException> {
+	private static final Logger LOG = Logger.getLogger(IOException.class);
 	
 	@Override
-	public Response toResponse(WebServiceException ex) {
+	public Response toResponse(IOException ex) {
 		LOG.info(ex.getMessage());
 		
 		if (ex.getCause() != null) {
 			LOG.info("\n" + ex.getCause().getMessage());
 		}
-		
+
 		final RespuestaVO<String> error =
-				new RespuestaVO<>(Response.Status.SERVICE_UNAVAILABLE.getStatusCode(),
+				new RespuestaVO<>(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode(),
 				ex.getMessage());
 		
 		return Response.serverError().entity(error).build();

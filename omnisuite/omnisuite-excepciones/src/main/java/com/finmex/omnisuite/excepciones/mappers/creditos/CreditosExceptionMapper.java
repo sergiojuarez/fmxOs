@@ -15,8 +15,12 @@ public class CreditosExceptionMapper implements ExceptionMapper<CreditosExceptio
 	
 	@Override
 	public Response toResponse(CreditosException ex) {
-		LOG.info(ex.getMessage() + "\n" + ex.getCause().getMessage());
-
+		LOG.info(ex.getMessage());
+		
+		if (ex.getCause() != null) {
+			LOG.info("\n" + ex.getCause().getMessage());
+		}
+		
 		final RespuestaVO<String> error =
 				new RespuestaVO<>(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode(),
 				ex.getMessage());

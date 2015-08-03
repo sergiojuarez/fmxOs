@@ -12,8 +12,12 @@ public class NullPointerExceptionMapper implements ExceptionMapper<NullPointerEx
 	
 	@Override
 	public Response toResponse(NullPointerException ex) {
-		LOG.info(ex.getMessage() + "\n" + ex.getCause().getMessage());
-
+		LOG.info(ex.getMessage());
+		
+		if (ex.getCause() != null) {
+			LOG.info("\n" + ex.getCause().getMessage());
+		}
+		
 		final RespuestaVO<String> error =
 				new RespuestaVO<>(Response.Status.NOT_FOUND.getStatusCode(),
 				ex.getMessage());
