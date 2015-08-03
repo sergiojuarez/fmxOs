@@ -20,7 +20,7 @@ import com.finmex.omnisuite.utils.constantes.creditos.CreditosClavesServicios;
 import com.finmex.omnisuite.vo.RespuestaVO;
 
 /**
- * Recurso que expone servicios REST para el módulo de Créditos.
+ * Recurso REST que expone servicios para el módulo de Créditos.
  * 
  * @author Felipe Cruz
  * @author Daniel García
@@ -36,6 +36,12 @@ public class CreditosService {
 	@Inject
 	private CreditoMovimientosClientService creditoMovimientosClientService;
 
+	/***
+	 * Consulta los últimos movimientos de cédito que tuvo el cliente. 
+	 * 
+	 * @param parametrosVO : {@code ParametrosVO}
+	 * @return {@code javax.ws.rs.core.Response}
+	 */
 	@POST
 	@Path(CreditosClavesServicios.CONSULTAR_MOVIMIENTOS)
 	public Response consultarUltimosMovimientos(final ParametrosVO parametrosVO) {
